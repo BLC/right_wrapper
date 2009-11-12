@@ -1,18 +1,21 @@
 = right_wrapper
 
-Description goes here.
+A simple wrapper over the right_aws gem to give verbose status output. This is most useful
+for logging automated tasks at Amazon since it can help track down where something went wrong.
+
+It also will wait for attachments/detachments and snapshots so you can have a synchronous
+experience.
+
 
 == Note on Patches/Pull Requests
  
 * Fork the project.
 * Make your feature addition or bug fix.
-* Add tests for it. This is important so I don't break it in a
-  future version unintentionally.
+* Add tests for it. This is important so I don't break it in a future version unintentionally.
 * Commit, do not mess with rakefile, version, or history.
-  (if you want to have your own version, that is fine but
-   bump version in a commit by itself I can ignore when I pull)
+  (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
 * Send me a pull request. Bonus points for topic branches.
 
 == Copyright
 
-Copyright (c) 2009 Zachary Belzer. See LICENSE for details.
+Copyright (c) 2009 Business Logic Corporation. See LICENSE for details.
