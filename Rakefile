@@ -4,13 +4,13 @@ require 'rake'
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
-    gem.name = "right_wrapper"
+    gem.name = "moneypools-right_wrapper"
     gem.summary = %Q{Simple wrapper over the right_aws utility providing verbose output and synchronization}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.description = %Q{Simple wrapper over the right_aws utility providing verbose output and synchronization}
     gem.email = "zbelzer@gmail.com"
-    gem.homepage = "http://github.com/zbelzer/right_wrapper"
+    gem.homepage = "http://github.com/moneypools/right_wrapper"
     gem.authors = ["Zachary Belzer"]
-    gem.add_development_dependency "thoughtbot-shoulda"
+    gem.add_development_dependency "right_aws"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
