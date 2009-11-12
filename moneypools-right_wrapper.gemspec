@@ -24,18 +24,13 @@ Gem::Specification.new do |s|
      "Rakefile",
      "VERSION",
      "lib/right_wrapper.rb",
-     "test/right_wrapper_test.rb",
-     "test/test_helper.rb"
+     "moneypools-right_wrapper.gemspec"
   ]
   s.homepage = %q{http://github.com/moneypools/right_wrapper}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.5}
   s.summary = %q{Simple wrapper over the right_aws utility providing verbose output and synchronization}
-  s.test_files = [
-    "test/right_wrapper_test.rb",
-     "test/test_helper.rb"
-  ]
 
   if s.respond_to? :specification_version then
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
