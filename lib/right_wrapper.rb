@@ -74,11 +74,17 @@ class RightWrapper
     current_volumes
   end
 
-  def create_snapshot(target_volume)
+  def create_snapshot(target_volume, tags={})
+    tag_string = ''
     target_volume_id = target_volume[:aws_id]
 
     puts "Creating snapshot of #{target_volume_id}"
-    snap_id = @ec2.create_snapshot(target_volume_id)[:aws_id]
+    unless tags.empty?
+      tag_string = tags.map {|k,v| [k.to_s, v.to_s].join(":")}.join(" ")
+      puts "-- Tagging snapshot with #{tag_string}"
+    end
+
+    snap_id = @ec2.create_snapshot(target_volume_id, tag_string)[:aws_id]
 
     while true
       snap_data = @ec2.describe_snapshots.detect {|snap| snap[:aws_id] == snap_id}    
@@ -91,10 +97,15 @@ class RightWrapper
 
     snap_id
   end
+
+  def share_snapshot(snap_id, *users)
+    puts "Sharing snapshot #{snap_id} with #{users.join(', ')}"
+    @ec2.modify_snapshot_attribute_create_volume_permission_add_users(snap_id, *users)
+  end
   
-  def delete_snapshot(target_snapshot_id)
-    puts "Deleting snapshot #{target_snapshot_id}"
-    @ec2.delete_snapshot(target_snapshot_id)
+  def delete_snapshot(snap_id)
+    puts "Deleting snapshot #{snap_id}"
+    @ec2.delete_snapshot(snap_id)
   end
 
   def create_volume(snap_id, volume_size, zone)
