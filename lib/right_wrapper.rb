@@ -102,6 +102,10 @@ class RightWrapper
     puts "Sharing snapshot #{snap_id} with #{users.join(', ')}"
     @ec2.modify_snapshot_attribute_create_volume_permission_add_users(snap_id, *users)
   end
+
+  def get_tags_for_snapshot(snap)
+    snap[:aws_description].squeeze(" ").split(" ").inject({}) { |c, t| key, value = t.split(":"); c[key.to_sym] = value; c}
+  end
   
   def delete_snapshot(snap_id)
     puts "Deleting snapshot #{snap_id}"

@@ -10,8 +10,7 @@ begin
     gem.email = "zbelzer@gmail.com"
     gem.homepage = "http://github.com/moneypools/right_wrapper"
     gem.authors = ["Zachary Belzer"]
-    gem.add_development_dependency "right_aws"
-    # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
+    gem.add_dependency "redaranj-right_aws", ">= 1.11.0"
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError
